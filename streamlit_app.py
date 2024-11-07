@@ -34,7 +34,8 @@ y_predicted = humidity_classifier.predict(X_test)
 y_predicted[:10]
 y_test['high_flow_label'][:10]
 accuracy_score(y_test,y_predicted)*100
-st.write(f"Accuracy: {accuracy_score(y_test, y_predicted) * 100:.2f}%")
+# st.write(f"Accuracy: {accuracy_score(y_test, y_predicted) * 100:.2f}%")
+st.write(accuracy_score)
 st.title("🎈 My new app")
 st.write(
     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
