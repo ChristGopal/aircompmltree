@@ -10,9 +10,7 @@ import pydotplus
 
 # Load your data (replace 'air_comp_data_new.csv' with your actual file path)
 data = pd.read_csv('air_comp_data_new.csv')
-
 data.columns
-data.head()
 data[data.isnull().any(axis=1)].head()
 clean_data = data.copy()
 clean_data['high_flow_label'] = (clean_data['air_flow'] >1500.00) *1
