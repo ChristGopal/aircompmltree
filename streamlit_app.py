@@ -45,7 +45,7 @@ dot_data = io.StringIO()  # Use io.StringIO instead of StringIO
 export_graphviz(humidity_classifier, out_file=dot_data, filled=True, rounded=True, special_characters=True)
 graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
 # 2. Convert to PIL Image
-png_image = Image.open(io.BytesIO(graph.create_png())) 
+# png_image = Image.open(io.BytesIO(graph.create_png())) 
 # 3. Display with st.image
 st.image(graph, caption='Decision Tree', use_column_width=True)
 # Optionally, display other information like accuracy
