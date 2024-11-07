@@ -47,7 +47,7 @@ graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
 # 2. Convert to PIL Image
 png_image = Image.open(io.BytesIO(graph.create_png())) 
 # 3. Display with st.image
-st.image(png_image, caption='Decision Tree', use_column_width=True)
+st.image(graph, caption='Decision Tree', use_column_width=True)
 # Optionally, display other information like accuracy
 st.write(f"Accuracy: {accuracy_score(y_test, y_predicted) * 100:.2f}%")
 st.title("🎈 My new app")
