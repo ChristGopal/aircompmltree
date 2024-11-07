@@ -4,7 +4,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from six import StringIO
-from IPython.display import Image
+import io
 from sklearn.tree import export_graphviz
 import pydotplus
 
@@ -47,12 +47,13 @@ print(accuracy_score(y_test,y_predicted)*100)
 st.title("Decision Tree Classifier")
 
 # Display the decision tree
-dot_data = StringIO()
+dot_data = io.StringIO()  # Use io.StringIO instead of StringIO
 export_graphviz(humidity_classifier, out_file=dot_data, filled=True, rounded=True, special_characters=True)
 graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
 
-# Instead of Image(graph.create_png()), use st.image()
-st.image(graph.create_png(), caption='Decision Tree', use_column_width=True) 
+# Use st.image() to display the image
+st.image(graph.create_png(), caption='Decision Tree', use_column_width=True)
+
 
 # Optionally, display other information like accuracy
 st.write(f"Accuracy: {accuracy_score(y_test, y_predicted) * 100:.2f}%")
