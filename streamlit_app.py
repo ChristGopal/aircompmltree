@@ -44,8 +44,10 @@ st.title("Decision Tree Classifier")
 dot_data = io.StringIO()  # Use io.StringIO instead of StringIO
 export_graphviz(humidity_classifier, out_file=dot_data, filled=True, rounded=True, special_characters=True)
 graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
-# Use st.image() to display the image
-st.image(graph.create_png(), caption='Decision Tree', use_column_width=True)
+# 2. Convert to PIL Image
+png_image = Image.open(io.BytesIO(graph.create_png())) 
+# 3. Display with st.image
+st.image(png_image, caption='Decision Tree', use_column_width=True)
 # Optionally, display other information like accuracy
 st.write(f"Accuracy: {accuracy_score(y_test, y_predicted) * 100:.2f}%")
 st.title("🎈 My new app")
