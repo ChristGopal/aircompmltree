@@ -15,7 +15,7 @@ data.columns
 data.head()
 data[data.isnull().any(axis=1)].head()
 clean_data = data.copy()
-clean_data['high_flow_label'] = (clean_data['air_flow'] >900.00) *1
+clean_data['high_flow_label'] = (clean_data['air_flow'] >1500.00) *1
 clean_data['high_flow_label'].head()
 y = clean_data[['high_flow_label']].copy()
 clean_data['air_flow'].head()
